@@ -35,7 +35,10 @@ packages/
 TestResults/
 *.dbmdl
 *.pdb
-reports.db*
+
+# Reports database
+reports.db-*
+src/Reports.API/reports.db
 
 # OS generated files
 .DS_Store
