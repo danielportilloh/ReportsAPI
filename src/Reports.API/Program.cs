@@ -34,6 +34,21 @@ var app = builder.Build();
 // Seed the database
 await ApplicationHelper.SeedDatabase(app);
 
+// Global error handling middleware
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        context.Response.StatusCode = 400;
+        context.Response.ContentType = "application/json";
+
+        var exceptionHandlerPathFeature = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature>();
+        var errorMessage = exceptionHandlerPathFeature?.Error.Message ?? "An unexpected error occurred.";
+
+        await context.Response.WriteAsync($"{{\"error\": \"{errorMessage}\"}}");
+    });
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
