@@ -56,3 +56,7 @@ A step-by-step series of examples that tell you how to get a development environ
     ```bash
     dotnet run --project src/Reports.API/Reports.API.csproj
     ```
+
+# Comments
+- I didn't implement any SQL query since I'm using EF Core, there's no need to add SP's or SQL queries.
+- There are no tests projects. Since it is as simple as data retrieval I didn't implemented any unit tests.
