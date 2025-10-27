@@ -60,3 +60,12 @@ A step-by-step series of examples that tell you how to get a development environ
 # Comments
 - I didn't implement any SQL query since I'm using EF Core, there's no need to add SP's or SQL queries.
 - There are no tests projects. Since it is as simple as data retrieval I didn't implemented any unit tests.
+
+# To improve
+Due time constraints, I didn't implement the following but I consider it will make a big difference:
+- Multiple MappingProfiles for each layer.
+- LocalDB connection to a SQL Server instance, I didn't have it installed in my PC.
+- Unit tests for MappingProfile. It will avoid mapping issues when dealing with multiple models.
+- Json logging or serilog sinks. This way it can integrate better with OpenTelemetry as well as observability environments (datadog, cloudwatch, etc..).
+- Swagger documentation. I would document every single method (and endpoint) using the XML documentation method.
+- Seed more entities in db.
